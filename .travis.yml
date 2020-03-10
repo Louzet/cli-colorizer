@@ -1,20 +1,25 @@
+dist: trusty
+
+sudo: false
+
 language: php
 
 php:
-  - 7.2
-  - 7.3
+  - 7.3.5
 
-env:
-  matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - COMPOSER_FLAGS=""
+matrix:
+  fast_finish: true
+
+install: true
 
 before_script:
-  - travis_retry composer self-update
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+  - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - composer self-update
+  - composer require phpunit/phpunit
 
 script:
-  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+  - vendor/bin/phpunit tests/ --coverage-html build/ --testdox
 
-after_script:
-  - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+branches:
+  only:
+    - master
