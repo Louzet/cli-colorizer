@@ -1,0 +1,44 @@
+{
+    "name": "louzet/colorizer",
+    "description": "",
+    "keywords": [
+        "louzet",
+        "cli",
+        "cli-color",
+        "colorizer"
+    ],
+    "homepage": "https://github.com/louzet/colorizer",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mickael Louzet",
+            "email": "micklouzet@hotmail.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Louzet\\Colorizer\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Louzet\\Colorizer\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
