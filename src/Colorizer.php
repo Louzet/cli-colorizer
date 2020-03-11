@@ -2,7 +2,7 @@
 
 namespace Louzet\Colorizer;
 
-class Colorizer
+class Colorizer implements ColorizerInterface
 {
 
     public const FOREGROUND_BLACK     = '0;30';
@@ -76,15 +76,14 @@ class Colorizer
     ];
 
     /**
-     * @param string      $sentence
-     * @param string|null $foreground
-     * @param int|null    $background
-     * @param bool        $endOfLine
-     *
-     * @return string
+     * @inheritDoc
      */
-    public function color(string $sentence, string $foreground = null, int $background = null, bool $endOfLine = false)
-    {
+    public function color(
+        string $sentence,
+        string $foreground = null,
+        string $background = null,
+        bool $endOfLine = false
+    ) {
         $this->setForegroundCode($foreground);
         $this->setBackgroundColor($background);
 
@@ -121,13 +120,16 @@ class Colorizer
     }
 
     /**
-     * @param string $backgroundColor
+     * @param string|int $backgroundColor
      * @param null   $text
      *
      * @return bool|Colorizer
      */
-    public function setBackgroundColor(string $backgroundColor, $text = null)
+    public function setBackgroundColor($backgroundColor, $text = null)
     {
+        if (is_int($backgroundColor)) {
+            $backgroundColor = (string) $backgroundColor;
+        }
         $this->backgroundColor = $backgroundColor;
 
         if ($this->backgroundColor < self::BACKGROUND_BLACK || $this->backgroundColor > self::BACKGROUND_LIGHTGREY) {
@@ -187,5 +189,21 @@ class Colorizer
         $coloredOutput .= $sentence . "\033[0m";
 
         return $coloredOutput . PHP_EOL;
+    }
+
+    /**
+     * @return string
+     */
+    public function getForegroundText(): string
+    {
+        return $this->foregroundText;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBackgroundText(): string
+    {
+        return $this->backgroundText;
     }
 }
