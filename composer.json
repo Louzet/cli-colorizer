@@ -1,5 +1,5 @@
 {
-    "name": "louzet/colorizer",
+    "name": "louzet/cli-colorizer",
     "description": "",
     "keywords": [
         "louzet",
@@ -43,7 +43,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.0"
+            "dev-master": "1.0.x-dev"
         }
     }
 }
