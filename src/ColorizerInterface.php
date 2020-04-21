@@ -8,17 +8,17 @@
 
 declare(strict_types=1);
 
-namespace Louzet\Colorizer;
+namespace CliColorizer;
 
 interface ColorizerInterface
 {
     /**
-     * @param string      $sentence
+     * @param string $sentence
      * @param string|null $foreground
-     * @param string|null $background
-     * @param bool        $endOfLine
+     * @param int|null $background
+     * @param bool $endOfLine
      *
      * @return mixed
      */
-    public function color(string $sentence, string $foreground = null, string $background = null, bool $endOfLine = false);
+    public function color(string $sentence, string $foreground = null, int $background = null, bool $endOfLine = false);
 }

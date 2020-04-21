@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Louzet\\Colorizer\\": "src"
+            "CliColorizer\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Louzet\\Colorizer\\Tests\\": "tests"
+            "CliColorizer\\Tests\\": "tests"
         }
     },
     "scripts": {

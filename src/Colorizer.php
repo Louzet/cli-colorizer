@@ -1,6 +1,6 @@
 <?php
 
-namespace Louzet\Colorizer;
+namespace CliColorizer;
 
 class Colorizer implements ColorizerInterface
 {
@@ -81,7 +81,7 @@ class Colorizer implements ColorizerInterface
     public function color(
         string $sentence,
         string $foreground = null,
-        string $background = null,
+        int $background = null,
         bool $endOfLine = false
     ) {
         $this->setForegroundCode($foreground);
