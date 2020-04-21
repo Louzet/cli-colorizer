@@ -2,11 +2,10 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/louzet/colorizer.svg?style=flat-square)](https://packagist.org/packages/louzet/colorizer)
 [![Build Status](https://travis-ci.org/Louzet/cli-colorizer.svg?branch=master)](https://travis-ci.org/Louzet/cli-colorizer)
-[![Quality Score](https://img.shields.io/scrutinizer/g/louzet/cli-colorizer.svg?style=flat-square)](https://scrutinizer-ci.com/g/louzet/cli-colorizer)
-[![Total Downloads](https://img.shields.io/packagist/dt/louzet/colorizer.svg?style=flat-square)](https://packagist.org/packages/louzet/colorizer)
+[![Quality Score](https://scrutinizer-ci.com/g/louzet/cli-colorizer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/louzet/cli-colorizer)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
+cli-colorizer is a very small library which allows you to colorize the output streams in console
 ## Installation
 
 You can install the package via composer:
@@ -18,7 +17,17 @@ composer require louzet/colorizer
 ## Usage
 
 ``` php
-// Usage description here
+
+<?php
+
+declare(strict_types=1);
+
+require_once 'vendor/autoload.php';
+
+$color = new \CliColorizer\Colorizer();
+echo $color->color('Mickael Louzet', $color::FOREGROUND_BROWN, $color::BACKGROUND_MAGENTA);
+echo $color->color('Mickael Louzet', $color::FOREGROUND_WHITE, $color::BACKGROUND_MAGENTA);
+
 ```
 
 ### Testing
