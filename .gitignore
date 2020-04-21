@@ -5,10 +5,5 @@ vendor
 coverage
 .editorconfig
 .styleci.yml
-
 phpunit.xml.dist
-composer.lock
-
-index.php
-
 .idea
